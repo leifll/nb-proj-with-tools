@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Book Store</title>
+    </h:head>
+    <h:body>
+        <h1>Book Store</h1>
+        <p>Welcome to the book store</p>
+        <hr/>
+        <h2>Search</h2>
+        <h:form>
+            <p>
+                <h:outputLabel for="title" value="Title: "/>
+                <h:inputText id="title" value="#{inventory.searchedTitle}"/>
+                <h:commandButton action="#{inventory.find}" value="Search"/>
+            </p>
+            <p>
+                <h:outputLabel rendered="#{inventory.found}" 
+                               value="#{'Found: ' += inventory.book}"/>
+                <h:outputLabel rendered="#{!inventory.found}" 
+                               value="No books found."/>
+            </p>
+        </h:form>
+        <hr/>
+        <h2>Browse by Category</h2>
+        <h:form>
+            <p>Category:
+                <h:selectOneMenu onchange="submit()" 
+                                 valueChangeListener="#{inventory.setFilterCategory}">
+                    <f:selectItems value="#{inventory.allBooks.stream().map(b->b.category).distinct().toList()}"/>
+                </h:selectOneMenu>
+                <h:dataTable value="#{inventory.allBooks.stream().filter(b->b.category == inventory.filterCategory).toList()}"
+                             var="book"
+                             rendered="#{inventory.filterCategory != null}">
+                    <f:facet name="caption">#{"All " += inventory.filterCategory += " books:"}</f:facet>
+                    <h:column>
+                        <f:facet name="header">Title</f:facet>
+                            #{book.title}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Price</f:facet>
+                            #{book.price}
+                    </h:column>
+                </h:dataTable>
+            </p>
+        </h:form>
+    </h:body>
+</html>
+
