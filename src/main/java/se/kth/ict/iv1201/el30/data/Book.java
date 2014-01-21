@@ -11,6 +11,13 @@ public class Book {
     private String category;
     private int price;
 
+    /**
+     * Constructs a new <code>Book</code> instance.
+     * 
+     * @param title     The newly constructed book's title.
+     * @param category  The newly constructed book's category.
+     * @param price     The newly constructed book's price.
+     */
     public Book(String title, String category, int price) {
         this.title = title;
         this.category = category;

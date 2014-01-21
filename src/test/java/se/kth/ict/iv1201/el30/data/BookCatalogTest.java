@@ -1,6 +1,5 @@
 package se.kth.ict.iv1201.el30.data;
 
-import java.util.List;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
