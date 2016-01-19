@@ -8,12 +8,10 @@
     <packaging>war</packaging>
 
     <name>nb-proj-with-tools</name>
-    
     <ciManagement>
         <system>hudson</system>
-        <url>http://localhost:8888/job/nb-proj-with-tools/</url>
+        <url>http://localhost:8000/job/nb-proj-with-tools/</url>
     </ciManagement>
-
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
