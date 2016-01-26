@@ -3,7 +3,7 @@ package se.kth.ict.iv1201.el30.data;
 import java.util.Objects;
 
 /**
- * Describes a book
+ * Describes a book.
  */
 public class Book {
 
