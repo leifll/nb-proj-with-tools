@@ -23,7 +23,7 @@ public class BookCatalog {
         books.add(new Book("childrenBook2", "children", 100));
         books.add(new Book("childrenBook3", "children", 100));
         books.add(new Book("bibleBook1", "bible", 10));
-        books.add(new Book("bibleBook2", "bible", 10));
+        books.add(new Book("bibleBook2", "bible", 100));
         books.add(new Book("bibleBook3", "bible", 100));
         books.add(new Book("scienceBook1", "science", 1000));
         books.add(new Book("scienceBook2", "science", 1000));
