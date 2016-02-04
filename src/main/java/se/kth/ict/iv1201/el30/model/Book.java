@@ -1,22 +1,42 @@
-package se.kth.ict.iv1201.el30.data;
+package se.kth.ict.iv1201.el30.model;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
 
 /**
  * Describes a book.
  */
-public class Book {
+@Entity
+public class Book implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String title;
     private String category;
     private int price;
+    @Version
+    private int versionNum;
+
+    /**
+     * Constructs a new <code>Book</code> instance with all fields set to null.
+     */
+    public Book() {
+        this(null, null, 0);
+    }
 
     /**
      * Constructs a new <code>Book</code> instance.
-     * 
-     * @param title     The newly constructed book's title.
-     * @param category  The newly constructed book's category.
-     * @param price     The newly constructed book's price.
+     *
+     * @param title The newly constructed book's title.
+     * @param category The newly constructed book's category.
+     * @param price The newly constructed book's price.
      */
     public Book(String title, String category, int price) {
         this.title = title;
@@ -112,5 +132,5 @@ public class Book {
         }
         return true;
     }
-    
+
 }

@@ -6,8 +6,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import se.kth.ict.iv1201.el30.data.Book;
-import se.kth.ict.iv1201.el30.data.BookCatalog;
+import se.kth.ict.iv1201.el30.model.Book;
+import se.kth.ict.iv1201.el30.integration.BookDAO;
 
 /**
  * Manages the book inventory.
@@ -18,7 +18,7 @@ public class BookManager {
 
     private static final long deployTime  = System.currentTimeMillis();
     @Inject
-    private BookCatalog catalog;
+    private BookDAO catalog;
     private String searchedTitle;
     private Book book;
     private String filterCategory;
@@ -48,7 +48,7 @@ public class BookManager {
     }
 
     public List<Book> getAllBooks() {
-        return catalog.getBooks();
+        return catalog.findAllBooks();
     }
 
     public void setFilterCategory(ValueChangeEvent vce) {
