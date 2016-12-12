@@ -5,7 +5,7 @@
         <class>se.kth.ict.iv1201.el30.model.Book</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
-            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/><!-- actually, the test does create-and-drop, not drop-and-create -->
             <property name="eclipselink.logging.level.sql" value="FINEST"/>
             <property name="eclipselink.logging.parameters" value="true"/>    
         </properties>
